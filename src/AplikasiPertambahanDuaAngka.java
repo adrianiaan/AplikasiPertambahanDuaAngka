@@ -1,3 +1,7 @@
+
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,12 +35,12 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        txtAngka1 = new javax.swing.JTextField();
+        txtAngka2 = new javax.swing.JTextField();
+        txtHasil = new javax.swing.JTextField();
+        btnTambah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Pertambahan Dua Angka");
@@ -76,7 +80,17 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAngka1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAngka1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAngka1FocusGained(evt);
+            }
+        });
+        txtAngka1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka1KeyTyped(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -85,9 +99,19 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jTextField1, gridBagConstraints);
+        jPanel1.add(txtAngka1, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAngka2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAngka2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAngka2FocusGained(evt);
+            }
+        });
+        txtAngka2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka2KeyTyped(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -96,9 +120,10 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jTextField2, gridBagConstraints);
+        jPanel1.add(txtAngka2, gridBagConstraints);
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtHasil.setEditable(false);
+        txtHasil.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -107,31 +132,55 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jTextField3, gridBagConstraints);
+        jPanel1.add(txtHasil, gridBagConstraints);
 
-        jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jToggleButton1.setText("Tambah");
+        btnTambah.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jToggleButton1, gridBagConstraints);
+        jPanel1.add(btnTambah, gridBagConstraints);
 
-        jToggleButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jToggleButton2.setText("Hapus");
+        btnHapus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jToggleButton2, gridBagConstraints);
+        jPanel1.add(btnHapus, gridBagConstraints);
 
-        jToggleButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jToggleButton3.setText("Keluar");
+        btnKeluar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 20);
-        jPanel1.add(jToggleButton3, gridBagConstraints);
+        jPanel1.add(btnKeluar, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +188,7 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,6 +201,50 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtAngka1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE) {
+            evt.consume(); // Abaikan input jika bukan angka
+        }
+    }//GEN-LAST:event_txtAngka1KeyTyped
+
+    private void txtAngka2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka2KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAngka2KeyTyped
+
+    private void txtAngka1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAngka1FocusGained
+        txtAngka1.setText("");
+    }//GEN-LAST:event_txtAngka1FocusGained
+
+    private void txtAngka2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAngka2FocusGained
+        txtAngka2.setText("");
+    }//GEN-LAST:event_txtAngka2FocusGained
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        try {
+            int angka1 = Integer.parseInt(txtAngka1.getText());  // Ambil angka pertama
+            int angka2 = Integer.parseInt(txtAngka2.getText());  // Ambil angka kedua
+            int hasil = angka1 + angka2;  // Lakukan penjumlahan
+            txtHasil.setText(String.valueOf(hasil));  // Tampilkan hasil di txtHasil
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Masukkan angka yang valid!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        txtAngka1.setText("");
+        txtAngka2.setText("");
+        txtHasil.setText("");
+        txtAngka1.requestFocus();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,15 +283,15 @@ public class AplikasiPertambahanDuaAngka extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnKeluar;
+    private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JTextField txtAngka1;
+    private javax.swing.JTextField txtAngka2;
+    private javax.swing.JTextField txtHasil;
     // End of variables declaration//GEN-END:variables
 }
