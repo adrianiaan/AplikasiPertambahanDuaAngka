@@ -1,5 +1,5 @@
 # Aplikasi Pertambahan Dua Angka
-Latihan 2 - Adrian Akhmad Firdaus (2210010491)
+Latihan 1 - Adrian Akhmad Firdaus (2210010491)
 ---
 # Deskripsi
 
