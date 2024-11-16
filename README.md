@@ -110,9 +110,10 @@ Aplikasi ini menggunakan komponen berikut:
    - **Hapus** untuk membersihkan input.
    - **Keluar** untuk menutup aplikasi.
 
-## Penilaian Aplikasi
+## Gambar pada saat Aplikasi Dijalankan
 
-Berikut adalah indikator penilaian untuk README Anda berdasarkan format yang diminta:
+![image](https://github.com/user-attachments/assets/e5de38b7-a0e7-42e6-8f91-35da115ede45)
+
 
 ---
 
