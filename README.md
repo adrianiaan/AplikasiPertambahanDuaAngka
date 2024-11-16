@@ -3,8 +3,7 @@ Latihan 2 - Adrian Akhmad Firdaus (2210010491)
 ---
 # Deskripsi
 
-Aplikasi ini memungkinkan pengguna untuk melakukan operasi penjumlahan dua angka dengan antarmuka grafis yang sederhana. Program dibuat menggunakan **Java Swing** dengan IDE **NetBeans 8.2** dan memenuhi semua persyaratan Latihan 1 dari modul.
-
+Aplikasi ini memungkinkan pengguna untuk melakukan operasi penjumlahan dua angka dengan antarmuka grafis yang sederhana.
 ## Fitur Aplikasi
 
 1. **Penjumlahan Dua Angka**: 
